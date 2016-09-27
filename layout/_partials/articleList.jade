@@ -1,0 +1,13 @@
+article.list
+    a.color(href=url_for(post.path))
+        .tags
+            each tag in post.tags
+                span!=tag
+                span tagg
+        h2!=post.title
+    section
+        .text!=post.excerpt
+        span.article-clear
+        .meta
+            span!=post.date.fromNow()
+            a.button.text(href=url_for(post.path)) Read More

@@ -1,0 +1,22 @@
+// Include sharing menu
+if theme.share
+    include items/articleShare
+
+article.single
+    .color
+        .icons
+            if theme.github.history
+                a(href= theme.github.url + '/commits/master/' + page.source, title='History' ).mdi-button
+                    i.mdi history
+            // If share links are provided, we render share icon
+            if theme.share
+                button.mdi-button#article-share(title="Share")
+                    i.mdi share
+        h1!=page.title
+        .wrap-tags-meta
+            .tags
+                each tag in page.tags
+                    span Tag
+            .meta=page.date.fromNow()
+    section
+        !=page.content

@@ -1,0 +1,237 @@
+$highlight-background: #263238;
+$highlight-background-light: #f3f3f3;
+$highlight-current-line: #393939;
+$highlight-selection: #515151;
+
+$highlight-foreground-light: $text-light-secondary;
+$highlight-foreground-dark: $text-dark-primary;
+$highlight-comment: $blue-grey-500;
+
+$highlight-red: $red-a200;
+$highlight-orange: $orange-a200;
+$highlight-yellow: $amber-a200;
+$highlight-green: $green-a200;
+
+$highlight-aqua: $light-blue-a200;
+
+$highlight-blue: $blue-a200;
+$highlight-purple: $purple-a200;
+
+$color-link: $primary-color;
+
+$font-size: $base-font-size;
+$line-height: $base-line-height;
+$padding: 1em;
+
+@mixin code-block {
+  background: $highlight-background;
+  overflow: auto;
+  color: $highlight-foreground-light;
+}
+
+@mixin line-numbers {
+  color: #666;
+}
+
+article section {
+  code {
+    background: $highlight-background-light;
+    color: $highlight-foreground-dark;
+    padding: 0.2em 0.3em;
+    font-size: 85%;
+    border-radius: 2px;
+  }
+
+  pre {
+    @include code-block;
+    code {
+      background: none;
+      text-shadow: none;
+      padding: 0;
+    }
+  }
+
+  .highlight {
+    @include code-block;
+
+    pre {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      margin: 0;
+      width: auto;
+    }
+
+    td {
+      border: none;
+      padding: 0;
+    }
+
+    figcaption {
+      @include clearfix;
+      font-size: 0.85em;
+      color: $highlight-comment;
+      line-height: 1em;
+      margin-bottom: 1em;
+
+      a {
+        float: right;
+      }
+    }
+
+
+    .gutter pre {
+      @include line-numbers;
+      text-align: right;
+      padding-right: 20px;
+    }
+
+    .line {
+      height: $font-size * $line-height;
+    }
+    .line.marked {
+      background: $highlight-selection;
+    }
+  }
+  .gist {
+    margin: 0 $padding $padding $padding;
+    border-style: solid;
+    border-width: 1px 0;
+    background: $highlight-background;
+    padding: 15px $padding 15px 0;
+
+    .gist-file {
+      border: none;
+      // font-family: font-mono;
+      margin: 0;
+      .gist-data {
+        background: none;
+        border: none;
+        .line-numbers {
+          @include line-numbers;
+          background: none;
+          border: none;
+          padding: 0 20px 0 0;
+        }
+        .line-data {
+          padding: 0 !important;
+        }
+      }
+      .highlight {
+        margin: 0;
+        padding: 0;
+        border: none;
+      }
+      .gist-meta {
+        background: $highlight-background;
+        color: $highlight-comment;
+        font: 0.85em font-sans;
+        text-shadow: 0 0;
+        padding: 0;
+        margin-top: 1em;
+        margin-left: $padding;
+
+        a {
+          color: $color-link;
+          font-weight: normal;
+          &:hover {
+            text-decoration: underline;
+
+          }
+        }
+      }
+    }
+  }
+}
+
+
+figure {
+  //.title,
+  .comment{
+    color: $highlight-comment;
+  }
+  .variable,
+  .attribute,
+  .tag,
+  .regexp,
+  .ruby .constant,
+  .xml .tag .title,
+  .xml .pi,
+  .xml .doctype,
+  .html .doctype {
+    color: $highlight-red;
+  }
+  .number,
+  .preprocessor,
+  .built_in,
+  .literal,
+  .params,
+  .constant {
+    color: $highlight-orange;
+  }
+  .class,
+  .ruby .class .title{
+    color: $highlight-green;
+  }
+  .string,
+  .value,
+  .inheritance,
+  .header,
+  .ruby .symbol,
+  .xml .cdata {
+    color: $highlight-green;
+  }
+
+  .function,
+  .python .decorator,
+  .python .title,
+  .ruby .function .title,
+  .ruby .title .keyword,
+  .perl .sub,
+  .javascript .title,
+  .coffeescript .title {
+    color: $highlight-blue;
+  }
+  .keyword,
+  .javascript .function {
+    color: $highlight-purple;
+  }
+
+  &.js {
+    .function,
+    .keyword {
+      color: $highlight-purple;
+    }
+    .function .title {
+      color: $highlight-blue;
+    }
+    .params {
+      color: $highlight-foreground-light;
+    }
+  }
+
+  // CSS COLORS
+  &.css {
+    .selector-attr {
+      color: $highlight-yellow;
+    }
+    .selector-class {
+      color: $highlight-orange;
+    }
+    .selector-tag {
+      color: $highlight-red;
+    }
+    .selector-pseudo {
+      color: $highlight-orange;
+    }
+    .attribute {
+      color: $highlight-aqua;
+    }
+    .number {
+      color: $highlight-foreground-light;
+    }
+  }
+}

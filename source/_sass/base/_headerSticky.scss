@@ -1,0 +1,52 @@
+.header-sticky {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: $accent-color;
+  box-shadow: 8px 5px 10px rgba(0, 0, 0, 0.2);
+  color: $text-light-primary;
+
+  // Initial
+  height: 10px;
+
+  &.scroll {
+    height: 2em;
+
+    .wrap {
+      visibility: visible;
+    }
+  }
+
+  .wrap {
+    display: flex;
+    flex: 1;
+    visibility: hidden;
+    flex-direction: row;
+
+    .center {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: center;
+
+      // Adjust center for right icon
+      margin-right: -$icon-width;
+    }
+
+    .wrap-left,
+    .wrap-right {
+      display: flex;
+      flex: 1;
+    }
+
+    .icon {
+      border-radius: 50%;
+      margin-top: -20px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+if theme.more
+    include items/navMore
+
+include stickyHeader
+
+header
+    noscript Looks like you don't have Javascript enabled/available. Most of the stuff should still work though.
+    if theme.gravatar !== ''
+        a(href="/")
+            img(src='https://www.gravatar.com/avatar/' + theme.gravatar + 's=512')
+    a(href="/")
+        h3.title= config.title
+    p.description= config.description
+
+    nav
+        ul
+            each url, name in theme.menu
+                li
+                    a(href=url)!=name
+            if theme.more
+                li.more
+                    button.mdi-button#nav-more
+                        i.mdi.hover more_horiz

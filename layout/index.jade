@@ -1,0 +1,5 @@
+extends _partials/layout
+
+block content
+    each post in site.posts.toArray()
+        include _partials/articleList
