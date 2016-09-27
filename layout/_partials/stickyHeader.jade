@@ -1,18 +1,18 @@
 .menu#header-sticky-menu
-    each url, name in theme.menu
-        li
-            a(href=url)!=name
+    ul
+        each url, name in theme.menu
+            li
+                a(href=url)!=name
 .header-sticky
     .wrap
         .center
             .wrap-left
-                span Tine
+                span!=config.title
 
             if theme.gravatar !== ''
                 a(href="/")
                     img.icon(src='https://www.gravatar.com/avatar/' + theme.gravatar + 's=512')
 
             .wrap-right
-                span Jozelj
-        button.mdi-button#header-sticky-more
-            i.mdi.hover more_horiz
+                button.mdi-button#header-sticky-more
+                    i.mdi.hover more_horiz

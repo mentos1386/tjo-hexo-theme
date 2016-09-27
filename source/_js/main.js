@@ -46,6 +46,9 @@ window.onload = () => {
     // NAVBAR MORE
     uiMenus.push(new UIMenu("nav-more", "nav-more-menu"));
 
+    // HEADER STICKY MENU
+    uiMenus.push(new UIMenu("header-sticky-more", "header-sticky-menu"));
+
     // ARTICLE SHARE /Only if article-share is in DOM
     if (document.getElementById("article-share")) {
         uiMenus.push(new UIMenu("article-share", "article-share-menu"));

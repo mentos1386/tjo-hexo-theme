@@ -594,35 +594,48 @@ header {
 .header-sticky {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 990;
   background: #0a369d;
   box-shadow: 8px 5px 10px rgba(0, 0, 0, 0.2);
   color: white;
   height: 10px; }
   .header-sticky.scroll {
-    height: 2em; }
+    height: 2.5em; }
     .header-sticky.scroll .wrap {
       visibility: visible; }
   .header-sticky .wrap {
     display: flex;
-    flex: 1;
     visibility: hidden;
-    flex-direction: row; }
+    flex-direction: row;
+    width: 75%;
+    max-width: 900px; }
     .header-sticky .wrap .center {
       display: flex;
       flex: 1;
       flex-direction: row;
-      justify-content: center;
-      margin-right: -32px; }
+      justify-content: center; }
     .header-sticky .wrap .wrap-left,
     .header-sticky .wrap .wrap-right {
       display: flex;
       flex: 1; }
+      .header-sticky .wrap .wrap-left .mdi-button,
+      .header-sticky .wrap .wrap-right .mdi-button {
+        color: rgba(255, 255, 255, 0.7);
+        align-self: center; }
+        .header-sticky .wrap .wrap-left .mdi-button:hover,
+        .header-sticky .wrap .wrap-right .mdi-button:hover {
+          color: white; }
+      .header-sticky .wrap .wrap-left span,
+      .header-sticky .wrap .wrap-right span {
+        line-height: 2.5em; }
+    .header-sticky .wrap .wrap-right {
+      justify-content: end; }
     .header-sticky .wrap .icon {
       border-radius: 50%;
       margin-top: -20px; }
